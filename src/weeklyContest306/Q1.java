@@ -14,7 +14,7 @@ public class Q1 {
                         max = Math.max(grid[i + dx][j + dy], max);
                     }
                 }
-                res[i-1][j-1] = max;
+                res[i - 1][j - 1] = max;
             }
         }
         return res;
