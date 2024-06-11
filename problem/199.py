@@ -11,9 +11,8 @@ class Solution:
             if node is None:
                 return
 
-            if deep >= len(result_list):
+            if deep == len(result_list):
                 result_list.append(node.val)
-
             bfs(node.right, deep + 1)
             bfs(node.left, deep + 1)
 
