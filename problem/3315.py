@@ -1,18 +1,30 @@
 from typing import List
 
 
+def ans1(nums: list[int]) -> list[int]:
+    for i, n in enumerate(nums):
+        if n == 2:
+            nums[i] = -1
+        else:
+            t = ~n
+            lowbit = t & -t
+            nums[i] ^= lowbit >> 1
+    return nums
+
+
+def ans2(nums: list[int]) -> list[int]:
+    for i, n in enumerate(nums):
+        if n == 2:
+            nums[i] = -1
+        else:
+            t = n + 1
+            nums[i] -= (t & -n) >> 1
+    return nums
+
+
 class Solution:
     def minBitwiseArray(self, nums: List[int]) -> List[int]:
-        ans = []
-        for n in nums:
-            if n & 1 == 0:
-                ans.append(-1)
-                continue
-            for i in range(n.bit_length()):
-                if n & (1 << i) and not n & (1 << (i + 1)):
-                    ans.append(n - (n & (1 << i)))
-                    break
-        return ans
+        return ans2(nums)
 
 
 if __name__ == '__main__':
