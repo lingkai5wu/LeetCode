@@ -10,8 +10,8 @@ for _ in range(10 ** 5 - 3):  # 预处理所有长度的结果
 
 class Solution:
     def countTexts(self, pressedKeys: str) -> int:
-        ans = 1
+        res = 1
         for ch, s in groupby(pressedKeys):
             m = len(list(s))
-            ans = ans * (g[m] if ch in "79" else f[m]) % MOD
-        return ans
+            res = res * (g[m] if ch in "79" else f[m]) % MOD
+        return res

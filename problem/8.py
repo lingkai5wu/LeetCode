@@ -4,7 +4,7 @@ class Solution:
         if n == 0:
             return 0
 
-        ans = 0
+        res = 0
         sign = 1
         i = 0
 
@@ -26,14 +26,13 @@ class Solution:
             digit = ord(s[i]) - ord('0')
             if not 0 <= digit <= 9:
                 break
-            if ans > (int_max - digit) / 10:
+            if res > (int_max - digit) / 10:
                 return int_max if sign == 1 else int_min
-            ans = ans * 10 + digit
+            res = res * 10 + digit
             i += 1
-        return ans * sign
+        return res * sign
 
 
 if __name__ == '__main__':
     s = "42"
-    res = Solution().myAtoi(s)
-    print(res)
+    print(Solution().myAtoi(s))

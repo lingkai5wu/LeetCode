@@ -4,7 +4,7 @@ from typing import List
 
 class Solution:
     def findXSum(self, nums: List[int], k: int, x: int) -> List[int]:
-        ans = []
+        res = []
         for i in range(len(nums) - k + 1):
             counter = collections.Counter(nums[i:i + k])
             count_list = list(counter.items())
@@ -12,8 +12,8 @@ class Solution:
             total = 0
             for j in range(min(x, len(count_list))):
                 total += count_list[j][0] * count_list[j][1]
-            ans.append(total)
-        return ans
+            res.append(total)
+        return res
 
 
 if __name__ == '__main__':
