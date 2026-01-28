@@ -4,10 +4,10 @@ class Solution:
 
 
 def ans1(s: str, k: int) -> str:
-    ans = ""
+    res = ""
     for i in range(len(s)):
-        ans += s[(i + k) % len(s)]
-    return ans
+        res += s[(i + k) % len(s)]
+    return res
 
 
 def ans2(s: str, k: int) -> str:
