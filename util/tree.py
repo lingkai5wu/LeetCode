@@ -5,11 +5,19 @@ class TreeNode:
         self.right = right
 
 
-def deserialize(serialized_list, index=0):
-    if index >= len(serialized_list) or serialized_list[index] is None:
-        return None
+def deserialize(lst):
+    it = iter(lst)
 
-    root = TreeNode(serialized_list[index])
-    root.left = deserialize(serialized_list, 2 * index + 1)
-    root.right = deserialize(serialized_list, 2 * index + 2)
-    return root
+    def build():
+        try:
+            val = next(it)
+        except StopIteration:
+            return None
+        if val is None:
+            return None
+        node = TreeNode(val)
+        node.left = build()
+        node.right = build()
+        return node
+
+    return build()
